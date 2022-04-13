@@ -1,13 +1,17 @@
-const externalApiLINK = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=605fcb167973d5a9f74b205695b5e0f2&tags=Star+wars&extras=url_m&per_page=3&format=json&nojsoncallback=1&auth_token=72157720839396359-d3d488a8c496fb50&api_sig=5cfd7a42dc793d72dc2a96dfceef6fdf"
-const apiAdress = "http://localhost:8080/PHOTOS"
 
-async function fetchPhotos(externalApiLINK) {
+const externalApiLink = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=3166afb88dcbdda3430eb6b70e26f510&tags=Star+wars&extras=url_m&per_page=10&format=json&nojsoncallback=1&auth_token=72157720839517229-3b782c535bf85a36&api_sig=3ed9825da5af426f95600e7ce01a7db6"
+const internalApiLink = "http://localhost:8080/PHOTOS"
+
+
+
+async function fetchPhotos(externalApiLink) {
     try {
-        const response = await fetch(externalApiLINK, {
+        const response = await fetch(externalApiLink, {
             method: 'GET',
             //credentials: ''
         });
         const photos = await response.json();
+        console.log(photos);
         return photos;
     } catch (error) {
         console.error(error);
@@ -15,22 +19,22 @@ async function fetchPhotos(externalApiLINK) {
 }
 
 
-async function renderPhotos(externalApiLINK) {
-    const photos = await fetchPhotos(externalApiLINK);
+async function renderPhotos(externalApiLink) {
+    const photos = await fetchPhotos(externalApiLink);
     const photografies = photos.photos.photo
     let html = '';
     console.log(photografies);
     photografies.forEach(photo => {
         let htmlSegment = `<div class="photo">
-                            <img src="${photo.url_m}" >
-                        </div>`;
+                            <img src="${photo.url_m}" alt="${photo.title}" >
+                            </div>`;
 
         html += htmlSegment;
     });
-    let container = document.querySelector('.container');
+    let container = document.querySelector('.gallery');
     container.innerHTML = html;
 }
 
 
 
-renderPhotos(externalApiLINK)
+renderPhotos(externalApiLink)
