@@ -4,9 +4,9 @@ const internalApiLink = "http://localhost:8080/PHOTOS"
 
 
 
-async function fetchPhotos(externalApiLink) {
+async function fetchPhotos(internalApiLink) {
     try {
-        const response = await fetch(externalApiLink, {
+        const response = await fetch(internalApiLink, {
             method: 'GET',
             //credentials: ''
         });
@@ -19,9 +19,8 @@ async function fetchPhotos(externalApiLink) {
 }
 
 
-async function renderPhotos(externalApiLink) {
-    const photos = await fetchPhotos(externalApiLink);
-    const photografies = photos.photos.photo
+async function renderPhotos(internalApiLink) {
+    const photografies = await fetchPhotos(internalApiLink);
     let html = '';
     console.log(photografies);
     photografies.forEach(photo => {
@@ -37,4 +36,4 @@ async function renderPhotos(externalApiLink) {
 
 
 
-renderPhotos(externalApiLink)
+renderPhotos(internalApiLink)
