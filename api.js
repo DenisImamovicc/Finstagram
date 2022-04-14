@@ -1,7 +1,7 @@
 import express from "express"
 import fetch from 'node-fetch';
 import cors from "cors"
-const externalApiLink = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=c16d5aee0e63b31b7eefc8b5e0db5c4c&tags=powerlifting&extras=url_m&per_page=3&format=json&nojsoncallback=1&auth_token=72157720839635019-60205b969c1fda88&api_sig=e1e24adecff6eae0e60e70da90e3296a"
+const externalApiLink = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=c16d5aee0e63b31b7eefc8b5e0db5c4c&text=powerlifting&extras=url_m&per_page=15&format=json&nojsoncallback=1&auth_token=72157720839635019-60205b969c1fda88&api_sig=cdfb288f4401b61a646c43829b27789d"
 const galleryLink="http://127.0.0.1:8080"
 //const cors = require("cors")
 const app = express();

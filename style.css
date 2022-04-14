@@ -2,15 +2,16 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    color: rgba(255, 217, 0, 0.74);
 }
 
+body{
+    background-color: rgb(88, 186, 114);
+}
 
 .container{
     display: flex;
     flex-direction: column;
     align-items: center;
-
 
     padding-top: 1em;
     padding-bottom: 1em;
@@ -18,14 +19,15 @@
 }
 
 img{
-    width:300px
+    width: 300px;
 }
 
 .gallery{
-    width: 90%;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 
@@ -37,7 +39,17 @@ img{
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+    .gallery{
+        flex-direction: row;
+    }
 
+    .photo{
+        padding: 0.6rem;
+    }
+
+    img{
+        width: initial;
+    }
 }
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
