@@ -1,6 +1,6 @@
 
-const externalApiLink = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=3166afb88dcbdda3430eb6b70e26f510&tags=Star+wars&extras=url_m&per_page=10&format=json&nojsoncallback=1&auth_token=72157720839517229-3b782c535bf85a36&api_sig=3ed9825da5af426f95600e7ce01a7db6"
-const internalApiLink = "http://localhost:8080/PHOTOS"
+const externalApiLink = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=c16d5aee0e63b31b7eefc8b5e0db5c4c&tags=powerlifting&per_page=3&format=json&nojsoncallback=1&auth_token=72157720839635019-60205b969c1fda88&api_sig=58dad857d012e4e8012274cb48bb5a35"
+const internalApiLink = "http://localhost:5000/PHOTOS"
 
 
 
