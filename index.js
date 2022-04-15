@@ -3,7 +3,7 @@ const externalApiLink = "https://www.flickr.com/services/rest/?method=flickr.pho
 const internalApiLink = "http://localhost:5000/PHOTOS"
 
 
-
+//dokument about function
 async function fetchPhotos(internalApiLink) {
     try {
         const response = await fetch(internalApiLink, {
@@ -14,15 +14,25 @@ async function fetchPhotos(internalApiLink) {
         console.log(photos);
         return photos;
     } catch (error) {
-        console.error(error);
+        console.error(error,"i shat my pants");
     }
 }
 
-
+//dokument about function
 async function renderPhotos(internalApiLink) {
     const photografies = await fetchPhotos(internalApiLink);
     let html = '';
+    let container = document.querySelector('.gallery');
+    let body = document.querySelector('body');
+
     console.log(photografies);
+
+    if (photografies===undefined) {
+        body.innerHTML=`<div class="errorMessage">
+                        <h1>Server is not responding.Reload the page or come back later.</h1>
+                        </div>`
+         
+    }
     photografies.forEach(photo => {
         let htmlSegment = `<div class="photo">
                             <img src="${photo.url_m}" alt="${photo.title}" >
@@ -30,7 +40,6 @@ async function renderPhotos(internalApiLink) {
 
         html += htmlSegment;
     });
-    let container = document.querySelector('.gallery');
     container.innerHTML = html;
 }
 

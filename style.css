@@ -8,6 +8,14 @@ body{
     background-color: rgb(88, 186, 114);
 }
 
+.errorMessage,h1{
+    background-color: red;
+    color: wheat;
+    text-align: center;
+    padding: 1rem ;
+    font-size: initial;
+}
+
 .container{
     display: flex;
     flex-direction: column;
@@ -39,6 +47,9 @@ img{
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+    
+
+    
     .gallery{
         flex-direction: row;
     }
@@ -53,7 +64,9 @@ img{
 }
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-
+    .errorMessage,h1{
+        font-size: 2rem;
+    }
 }
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
