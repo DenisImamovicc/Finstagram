@@ -11,7 +11,6 @@ async function fetchPhotos(internalApiLink) {
             //credentials: ''
         });
         const photos = await response.json();
-        console.log(photos);
         return photos;
     } catch (error) {
         console.error(error,"i shat my pants");
@@ -25,20 +24,20 @@ async function renderPhotos(internalApiLink) {
     let container = document.querySelector('.gallery');
     let body = document.querySelector('body');
 
-    console.log(photografies);
 
     if (photografies===undefined) {
-        body.innerHTML=`<div class="errorMessage">
-                        <h1>Server is not responding.Reload the page or come back later.</h1>
+        const errHtmlTemplate=`<div class="errorMessage">
+                        <h1 class="errorText">Server is not responding.Reload the page or come back later.</h1>
                         </div>`
-         
+                        html += errHtmlTemplate;
+                        container.innerHTML = html;
     }
     photografies.forEach(photo => {
-        let htmlSegment = `<div class="photo">
+        let sucessHTMLTemplate = `<div class="photo">
                             <img src="${photo.url_m}" alt="${photo.title}" >
                             </div>`;
 
-        html += htmlSegment;
+        html += sucessHTMLTemplate;
     });
     container.innerHTML = html;
 }

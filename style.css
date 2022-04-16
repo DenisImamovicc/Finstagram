@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,29 +7,83 @@
 }
 
 body{
-    background-color: rgb(88, 186, 114);
+    background-color: navajowhite;
+    overflow-x: hidden;
 }
 
-.errorMessage,h1{
+.errorMessage .errorText{
     background-color: red;
     color: wheat;
     text-align: center;
     padding: 1rem ;
     font-size: initial;
+    margin-top: -1rem;
+    width: 100vw;
 }
+
+nav{
+
+}
+
+#nav-title{
+    background-color: gray;
+    color: wheat;
+    text-align: center;
+    padding: 1rem;
+    font-size: 2rem;
+    font-family: 'Amatic SC', cursive;
+}
+
+ul{
+    display: flex;
+    width: 100vw;
+    flex-wrap: wrap;
+    flex-direction: row;
+    position: fixed;
+    justify-content: space-around;
+    list-style: none;
+    bottom: -1px;
+    background-color: rgba(128, 128, 128, 0.7);
+    padding: 1rem;
+}
+
+li{
+    color: wheat;
+
+}
+
+li:hover{
+    color: white;
+    cursor: pointer;
+}
+
+li:active{
+    color: white;
+}
+
 
 .container{
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 100vh;
+
 
     padding-top: 1em;
-    padding-bottom: 1em;
 
 }
 
 img{
     width: 300px;
+    border-radius: 2rem;
+    transition:transform 0.25s ease;
+
+}
+
+img:hover {
+    -webkit-transform:scale(1.1); /* or some other value */
+    transform:scale(1.1);
+    
 }
 
 .gallery{
@@ -42,6 +98,22 @@ img{
 .photo{
     margin-bottom: 1em;
 }
+
+footer {
+    position:absolute;
+    display: flex;
+    width:100%;
+    height:60px;   /* Height of the footer */
+    background:gray;
+    color: wheat;
+
+    justify-content: center;
+    align-items: center;
+ }
+
+ footer,p{
+     font-size: 1rem;
+ }
 
 /* Viewport Mobile,Tablett and Desktop*/
 
@@ -67,12 +139,45 @@ img{
     .errorMessage,h1{
         font-size: 2rem;
     }
+
 }
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-
+    ul{
+        display: flex;
+        width: 100vw;
+        flex-wrap: wrap;
+        flex-direction: row;
+        position: initial;
+        justify-content: space-around;
+        list-style: none;
+        bottom: none;
+        background-color: rgba(128, 128, 128, 0.7);
+        padding: 1rem;
+    }
 }
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1980px) {
 
+    .errorMessage .errorText{
+
+        padding: 1rem ;
+        font-size: 2rem;
+
+    }
+
+    #nav-title{
+
+        padding: 1rem;
+        font-size: 3rem;
+    }
+
+    footer,p{
+        font-size: 2rem;
+    }
+
+    li{
+        font-size: 2rem;
+    }
+   
 }
