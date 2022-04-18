@@ -5,7 +5,7 @@ const gallery = document.querySelector('.gallery');
 //Sets loader to hidden when gallery is done being rendered
 gallery.addEventListener("load",  () => {
     const loader = document.querySelector(".loader");
-    return loader.className += " hidden";
+    return loader.classList += " hidden";
 });
 
 //fetches data from ap.js thru internalApi and returns fullfilled response in json format,if unsuccesful it will send a error message.
