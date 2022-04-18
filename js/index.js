@@ -1,5 +1,12 @@
 const internalApi = "http://localhost:5000/PHOTOS"
 let html = '';
+const gallery = document.querySelector('.gallery');
+
+//Sets loader to hidden when gallery is done being rendered
+gallery.addEventListener("load",  () => {
+    const loader = document.querySelector(".loader");
+    return loader.className += " hidden";
+});
 
 //fetches data from ap.js thru internalApi and returns fullfilled response in json format,if unsuccesful it will send a error message.
 async function fetchPhotos() {
@@ -20,9 +27,8 @@ function sendErrMessageAndData(error) {
 
 //Gets html template of either error/photo.
 function getTemplate(htmlTemplate) {
-    const container = document.querySelector('.gallery');
     html += htmlTemplate;
-    container.innerHTML = html;
+    gallery.innerHTML = html;
 }
 
 //returns a error template that adds to the index.html in the gallery div. 
@@ -53,7 +59,7 @@ function pickRenderTemplate(photografies) {
     return photosTemplate(photografies)
 }
 
-//render the entire sites main content in container.
+//render the entire sites main content in gallery.
 async function renderSite() {
     const photografies = await fetchPhotos(internalApi);
     return pickRenderTemplate(photografies)
