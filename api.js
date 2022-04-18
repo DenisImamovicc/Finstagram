@@ -2,12 +2,11 @@ import express from "express"
 import fetch from 'node-fetch';
 import cors from "cors"
 
-const flickrApi = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=904552878bd72bf5143028f71ca3411e&text=Star+wars&extras=url_m&per_page=10&format=json&nojsoncallback=1"
 const flickrApiKey = "904552878bd72bf5143028f71ca3411e"
-const flickrApiSecret = "b41a48685433caf6"
 const allowedServer="http://127.0.0.1:8080"
 const api = express();
 const PORT = 5000;
+const flickrApi = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${flickrApiKey}&text=Star+wars&extras=url_m&per_page=20&format=json&nojsoncallback=1`
 
 //Fetches none specified json data from flickrApi with the flickrApi and returns data,if res is status 200, in json form of photo array containing x amount of picture/s.
 function getExternaldata(req,res) {

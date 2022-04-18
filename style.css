@@ -6,26 +6,22 @@
     padding: 0;
 }
 
-body{
+body {
     background-color: navajowhite;
     overflow-x: hidden;
 }
 
-.errorMessage .errorText{
+.errorMessage .errorText {
     background-color: red;
     color: wheat;
     text-align: center;
-    padding: 1rem ;
+    padding: 1rem;
     font-size: initial;
     margin-top: -1rem;
     width: 100vw;
 }
 
-nav{
-
-}
-
-#nav-title{
+#nav-title {
     background-color: gray;
     color: wheat;
     text-align: center;
@@ -34,7 +30,7 @@ nav{
     font-family: 'Amatic SC', cursive;
 }
 
-ul{
+ul {
     display: flex;
     width: 100vw;
     flex-wrap: wrap;
@@ -47,46 +43,41 @@ ul{
     padding: 1rem;
 }
 
-li{
+li {
     color: wheat;
 
 }
 
-li:hover{
+li:hover {
     color: white;
     cursor: pointer;
 }
 
-li:active{
+li:active {
     color: white;
 }
 
-
-.container{
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-
-
     padding-top: 1em;
-
 }
 
-img{
+img {
     width: 300px;
     border-radius: 2rem;
-    transition:transform 0.25s ease;
-
+    transition: transform 0.25s ease;
 }
 
 img:hover {
-    -webkit-transform:scale(1.1); /* or some other value */
-    transform:scale(1.1);
-    
+    -webkit-transform: scale(1.1);
+    /* or some other value */
+    transform: scale(1.1);
 }
 
-.gallery{
+.gallery {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -95,55 +86,55 @@ img:hover {
 }
 
 
-.photo{
+.photo {
     margin-bottom: 1em;
 }
 
 footer {
-    position:absolute;
+    position: absolute;
     display: flex;
-    width:100%;
-    height:60px;   /* Height of the footer */
-    background:gray;
+    width: 100%;
+    height: 60px;
+    /* Height of the footer */
+    background: gray;
     color: wheat;
-
     justify-content: center;
     align-items: center;
- }
+}
 
- footer,p{
-     font-size: 1rem;
- }
+footer,
+p {
+    font-size: 1rem;
+}
 
-/* Viewport Mobile,Tablett and Desktop*/
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-    
-
-    
-    .gallery{
+    .gallery {
         flex-direction: row;
     }
 
-    .photo{
+    .photo {
         padding: 0.6rem;
     }
 
-    img{
+    img {
         width: initial;
     }
 }
+
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-    .errorMessage,h1{
+
+    .errorMessage,
+    h1 {
         font-size: 2rem;
     }
-
 }
+
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-    ul{
+    ul {
         display: flex;
         width: 100vw;
         flex-wrap: wrap;
@@ -156,28 +147,25 @@ footer {
         padding: 1rem;
     }
 }
+
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1980px) {
-
-    .errorMessage .errorText{
-
-        padding: 1rem ;
+    .errorMessage .errorText {
+        padding: 1rem;
         font-size: 2rem;
-
     }
 
-    #nav-title{
-
+    #nav-title {
         padding: 1rem;
         font-size: 3rem;
     }
 
-    footer,p{
+    footer,
+    p {
         font-size: 2rem;
     }
 
-    li{
+    li {
         font-size: 2rem;
     }
-   
 }

@@ -7,3 +7,6 @@
 
 #How to start the api and the gallery after the first time.
 1-The same procedure as it was the first time,only skip the npm install process.
+
+#How to check the how the gallery looks like if it can not fetch data from the api.
+1-Disable the PHOTOS route on the network tab and reload the page.If you want to do it in the terminal instead then start only the gallery.

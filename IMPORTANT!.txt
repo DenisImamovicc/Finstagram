@@ -1,7 +1,0 @@
-Done! Here's the API key and secret for your new app:
-	Finstagram
-Key:
-904552878bd72bf5143028f71ca3411e
-
-Secret:
-b41a48685433caf6
