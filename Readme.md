@@ -1,19 +1,19 @@
 # Finstagram
-
 Photo gallery and REST API.
 
 ## Installation
-Create a new terminal,then...
+Create a terminal,then...
 ```bash
 npm install
 ```
 ## Activating Api
-Create another terminal,then...
+Type in the terminal...
 ```bash
 npm start
 ```
 Starts the api on localhost:5000.
 ## Activating gallery
+Create another terminal and then type...
 ```bash
 live-server
 ```
