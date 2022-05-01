@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 import cors from "cors"
 
 const flickrapikey = "904552878bd72bf5143028f71ca3411e"
-const allowedserver="http://127.0.0.1:8080"
+const allowedserver="*"
 const api = express();
 const port = 5000;
 const flickrapi = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${flickrapikey}&text=Star+wars&extras=url_m&per_page=20&format=json&nojsoncallback=1`
