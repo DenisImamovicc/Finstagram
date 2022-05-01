@@ -11,12 +11,12 @@ body {
     overflow-x: hidden;
 }
 
-#nav-link{
+#header-link{
     text-decoration: none;
     color: inherit;
 }
 
-#nav-link:focus{
+#header-link:focus{
     text-decoration: none;
     color: white;
 }
@@ -31,7 +31,7 @@ body {
     width: 100vw;
 }
 
-#nav-title {
+#header-title {
     background-color: #4e4d4d;
     color: #f6f370;
     text-align: center;
@@ -40,7 +40,7 @@ body {
     font-family: 'Amatic SC', cursive;
 }
 
-ul {
+nav {
     display: flex;
     width: 100vw;
     flex-wrap: wrap;
@@ -195,7 +195,7 @@ p {
         font-size: 2rem;
     }
 
-    #nav-title {
+    #header-title {
         padding: 1rem;
         font-size: 3rem;
     }
