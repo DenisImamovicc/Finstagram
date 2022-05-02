@@ -22,7 +22,7 @@ body {
 
 .errorMessage .errorText {
     background-color: red;
-    color: wheat;
+    color: white;
     text-align: center;
     padding: 1rem;
     font-size: initial;
@@ -135,13 +135,8 @@ p {
     width: 100px;
 }
 
-.loader{
-    animation: fadeOut 1s;
-    animation-fill-mode: forwards;
-}
-
-.hidden {
-    animation: fadeOut 1s;
+.loader.hidden{
+    animation: fadeOut 2s;
     animation-fill-mode: forwards;
 }
 
