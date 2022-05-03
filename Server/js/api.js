@@ -6,7 +6,9 @@ const flickrapikey = "904552878bd72bf5143028f71ca3411e";
 const allowedserver="*";
 const api = express();
 const port = 5000;
-const flickrapi = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${flickrapikey}&text=Star+wars&extras=url_m&per_page=20&format=json&nojsoncallback=1`;
+const flickrapi = `https://www.flickr.com/services/rest/?method=flickr.photos.search`+
+                  `&api_key=${flickrapikey}&text=Star+wars&extras=url_m`+
+                  `&per_page=20&format=json&nojsoncallback=1`;
 
 //Fetch and return  succesful data with x amount of photos and specified theme;
 function getExternaldata(req,res) {
@@ -15,6 +17,10 @@ function getExternaldata(req,res) {
     .then(function(rawData){
         const filteredData = res.status(200).send(rawData.photos.photo);
         return filteredData;
+    })
+    .catch(function(err){
+        console.error(err.message);
+        throw new Error(res.status(500).send(err));
     });
 }
 

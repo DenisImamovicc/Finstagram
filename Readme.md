@@ -1,22 +1,28 @@
 # Finstagram
-Photo gallery and REST API.
+Photo gallery(Client) and REST API(Server).
 
 ## Installation
-Create a terminal,then...
+Create a terminal,then acess the client or the server by...
 ```bash
+cd Client
+npm install
+```
+or
+```bash
+cd Server
 npm install
 ```
 ## Activating Api
-Type in the terminal...
+Type in the terminal while in the Server directory...
 ```bash
 npm start
 ```
 Starts the api on localhost:5000.
-## Activating gallery
-Create another terminal and then type...
+## Activating Gallery
+Type in the terminal while in the Client directory...
 ```bash
 live-server
 ```
-Starts the gallery page on localhost:8080 in your browser.
+Starts the gallery page on a localhost in your browser.
 
 If you want to see how gallery reacts without Api,to simulate server issues, then call only the "live server"command.Load the page for good measure.
