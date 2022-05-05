@@ -7,23 +7,31 @@ document.querySelector(".gallery").addEventListener("load", function(){
     return loader;
 });
 
+//Updates gallery content every 1min when called.
+const updateLocalStorage = setTimeout(()=>localStorage.removeItem("storedData"), 60000)
+
 //fetch data and return fullfilled response in json format or a error message.
 const getPhotos = async function(){
     const internalApi = "http://localhost:5000/PHOTOS";
-    const fetchedPhotos = await fetch(internalApi).then(function(response){
-            if (response.ok) {
-                return response.json();
-            }
-          throw new Error("Server error 500-599");
+     if (localStorage.getItem("storedData")) {
+        updateLocalStorage;
+        return JSON.parse(localStorage.getItem("storedData"))
+     }else{
+        const fetchPhotos = await fetch(internalApi).then(function(response){
+            if (response.ok) {return response.json();}
+                throw new Error("Server error 500-599");
         })
         .then(function(responseJson){
+            localStorage.setItem("storedData",JSON.stringify(responseJson))
             return responseJson;
         })
         .catch(function(error){
             sendErrServerMessageAndData(error);
         });
-    return fetchedPhotos;
+        return fetchPhotos
+     }
 };
+
 //Sends error message log and return null.
 const sendErrServerMessageAndData =function(error){
     const noPhotos = null;
