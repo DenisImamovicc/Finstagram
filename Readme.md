@@ -12,7 +12,13 @@ Type in the terminal while in the Server directory...
 ```bash
 npm start
 ```
-Starts the api on localhost:5000.If you want to shut down the api then repeat the command twice.
+Starts the api on localhost:5000.If you want to shut down then...
+```bash
+ctrl+c
+```
+```bash
+npm start
+```
 ## Activating Gallery
 Go to hosted live version page in the github about section or this link:
 ```
