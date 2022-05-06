@@ -12,7 +12,7 @@ const flickrapi = `https://www.flickr.com/services/rest/` +
                   `&per_page=20&format=json&nojsoncallback=1`;
 
 //Fetch and return  succesful data with x amount of photos and specified theme;
-function getExternaldata(res) {
+function getExternaldata(req,res) {
     fetch(flickrapi).then((res) => res.json()).then(function (rawData) {
         const filteredData = res.status(200).send(rawData.photos.photo);
         return filteredData;
