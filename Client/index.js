@@ -1,4 +1,5 @@
 let html = "";
+const REFRESH_TIME=60000;
 
 //Sets loader to hidden when gallery is done being rendered
 document.querySelector(".gallery").addEventListener("load", function(){
@@ -7,39 +8,37 @@ document.querySelector(".gallery").addEventListener("load", function(){
     return loader;
 });
 
-//Updates gallery content every 1min when called.
-const updateLocalStorage = setTimeout(()=>localStorage.removeItem("storedData"), 60000)
+//Updates gallery content every REFRESH_TIME when called.
+const updateLocalStorage = setTimeout(()=>localStorage.removeItem("storedData"), REFRESH_TIME);
 
-//fetch data and return fullfilled response in json format or a error message.
-const getPhotos = async function(){
-    const internalApi = "http://localhost:5000/PHOTOS";
-     if (localStorage.getItem("storedData")) {
+//Gets stored data first if there is and updates current,if not req is made.
+const getFreshOrStoredData = function(){
+    if (localStorage.getItem("storedData")) {
         updateLocalStorage;
         return JSON.parse(localStorage.getItem("storedData"))
-     }else{
-        const fetchPhotos = await fetch(internalApi).then(function(response){
-            if (response.ok) {return response.json();}
-                throw new Error("Server error 500-599");
-        })
-        .then(function(responseJson){
-            localStorage.setItem("storedData",JSON.stringify(responseJson))
-            return responseJson;
-        })
-        .catch(function(error){
-            sendErrServerMessageAndData(error);
-        });
-        return fetchPhotos
-     }
+    }
+    return fetchData()
 };
 
-//Sends error message log and return null.
-const sendErrServerMessageAndData =function(error){
-    const noPhotos = null;
-    console.error(error.message);
-    return noPhotos;
-};
+//fetch data and return fullfilled response in json format or a error message.
+const fetchData = async function() {
+    const internalApi = "http://localhost:5000/PHOTOS";
+    const fetchPhotos = await fetch(internalApi).then(function(response){
+        if (response.ok) {return response.json();}
+            throw new Error("Server error 500-599");
+    })
+    .then(function(responseJson){
+        localStorage.setItem("storedData",JSON.stringify(responseJson))
+        return responseJson;
+    })
+    .catch(function(error){
+        console.error(error.message);
+        return null;
+    });
+    return fetchPhotos
+}
 
-//Gets html template of either error/photo and .
+//Gets html template of either error/photo and.
 const renderTemplate =function(htmlTemplate){
     const gallery = document.querySelector(".gallery");
     html += htmlTemplate;
@@ -77,7 +76,7 @@ const pickWhatToRenderTemplate = function(photografies){
 };
 
 //call to render the entire content of site.Change at your own peril!
-const renderGallery = (async function(){
-    const photografies = await getPhotos();
+const renderGallery = async function(){
+    const photografies =  await getFreshOrStoredData();
     return pickWhatToRenderTemplate(photografies);
-}());
+}();
