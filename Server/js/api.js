@@ -3,22 +3,20 @@ import fetch from "node-fetch";
 import cors from "cors";
 
 const flickrapikey = "904552878bd72bf5143028f71ca3411e";
-const allowedserver="*";
+const allowedserver = "*";
 const api = express();
 const port = 5000;
-const flickrapi = `https://www.flickr.com/services/rest/?method=flickr.photos.search`+
-                  `&api_key=${flickrapikey}&text=Star+wars&extras=url_m`+
+const flickrapi = `https://www.flickr.com/services/rest/` +
+                  `?method=flickr.photos.search` +
+                  `&api_key=${flickrapikey}&text=Star+wars&extras=url_m` +
                   `&per_page=20&format=json&nojsoncallback=1`;
 
 //Fetch and return  succesful data with x amount of photos and specified theme;
-function getExternaldata(req,res) {
-    fetch(flickrapi)
-    .then((res) => res.json())
-    .then(function(rawData){
+function getExternaldata(res) {
+    fetch(flickrapi).then((res) => res.json()).then(function (rawData) {
         const filteredData = res.status(200).send(rawData.photos.photo);
         return filteredData;
-    })
-    .catch(function(err){
+    }).catch(function (err) {
         console.error(err.message);
         throw new Error(res.status(500).send(err));
     });
@@ -26,14 +24,12 @@ function getExternaldata(req,res) {
 
 //Allows a server to fetch data from this API without cors being in the way :).
 api.use(cors({
-    origin:allowedserver
+    origin: allowedserver
 }));
 
-api.listen(port, () =>
-    console.log(port, `Api live at http://localhost:${port}`)
-);
+api.listen(port, () => console.log(port, `Live at http://localhost:${port}`));
 
 ///Route responds to requests by calling getExternaldata().
-api.get("/PHOTOS", function(req,res){
-    getExternaldata(req,res);
+api.get("/PHOTOS", function (req, res) {
+    getExternaldata(req, res);
 });

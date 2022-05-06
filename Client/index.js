@@ -9,15 +9,16 @@ document.querySelector(".gallery").addEventListener("load", function(){
 });
 
 //Updates gallery content every REFRESH_TIME when called.
-const updateLocalStorage = setTimeout(()=>localStorage.removeItem("storedData"), REFRESH_TIME);
+const updateLocalStorage = setTimeout(
+    ()=>localStorage.removeItem("storedData"), REFRESH_TIME);
 
 //Gets stored data first if there is and updates current,if not req is made.
 const getFreshOrStoredData = function(){
     if (localStorage.getItem("storedData")) {
         updateLocalStorage;
-        return JSON.parse(localStorage.getItem("storedData"))
+        return JSON.parse(localStorage.getItem("storedData"));
     }
-    return fetchData()
+    return fetchData();
 };
 
 //fetch data and return fullfilled response in json format or a error message.
@@ -28,15 +29,15 @@ const fetchData = async function() {
             throw new Error("Server error 500-599");
     })
     .then(function(responseJson){
-        localStorage.setItem("storedData",JSON.stringify(responseJson))
+        localStorage.setItem("storedData",JSON.stringify(responseJson));
         return responseJson;
     })
     .catch(function(error){
         console.error(error.message);
         return null;
     });
-    return fetchPhotos
-}
+    return fetchPhotos;
+};
 
 //Gets html template of either error/photo and.
 const renderTemplate =function(htmlTemplate){
