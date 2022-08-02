@@ -13,11 +13,11 @@ const flickrapi = `https://www.flickr.com/services/rest/` +
 
 //Fetch and return  succesful data with x amount of photos and specified theme;
 function getExternaldata(req,res) {
-    fetch(flickrapi).then((res) => res.json()).then(function (rawData) {
-        const filteredData = res.status(200).send(rawData.photos.photo);
-        return filteredData;
-    }).catch(function (err) {
-        console.error(err.message);
+    fetch(flickrapi)
+    .then((res) => res.json())
+    .then((rawData)=> res.status(200).send(rawData.photos.photo))
+    .catch(function (err) {
+        console.error("sent from catch",err.message);
         throw new Error(res.status(500).send(err));
     });
 }
