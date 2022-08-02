@@ -1,14 +1,14 @@
 import express from "express";
+import 'dotenv/config'
 import fetch from "node-fetch";
 import cors from "cors";
 
-const flickrapikey = "904552878bd72bf5143028f71ca3411e";
 const allowedserver = "*";
 const api = express();
 const port = 5000;
 const flickrapi = `https://www.flickr.com/services/rest/` +
                   `?method=flickr.photos.search` +
-                  `&api_key=${flickrapikey}&text=Star+wars&extras=url_m` +
+                  `&api_key=${process.env.FLICKR_API_KEY}&text=Star+wars&extras=url_m` +
                   `&per_page=20&format=json&nojsoncallback=1`;
 
 //Fetch and return  succesful data with x amount of photos and specified theme;
