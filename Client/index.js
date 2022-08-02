@@ -30,9 +30,9 @@ const errorTemplate =function(){
 const photosTemplate =function(photografies){
     photografies.forEach(function(photo){
         const photoHTMLTemplate =
-            `<div class="photo">
+            `<article class="photo" aria-labelledby="main article">
                 <img src="${photo.url_m}" alt="${photo.title}" >
-            </div>`;
+            </article>`;
         return renderTemplate(photoHTMLTemplate);
     });
 };

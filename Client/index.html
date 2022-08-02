@@ -14,23 +14,23 @@
 
   <body>
     <header id="header">
-      <h1 class="header-title"><a href="#header" class="header-link">Finstagram</a></h1>
+      <h1 class="header-title"><a href="#header" class="header-link" aria-label="Company name">Finstagram</a></h1>
     </header>
-    <nav>
-      <li>Gallery</li>
-      <li>About us</li>
-      <li>Contact</li>
+    <nav id="button-group">
+      <button aria-disabled="true"id="Gallery-button">Gallery</button>
+      <button aria-disabled="true"id="About us-button">About us</button>
+      <button aria-disabled="true"id="Contact-button">Contact</button>
     </nav>
 
-    <main class="container">
-      <div class="gallery">
-        <div class="loader">
+    <main class="container" id="main">
+      <div class="gallery"id="gallery">
+        <div class="loader" role="alert" aria-busy="true">
           <img src="images/loading.gif" alt="Loading..." />
         </div>
       </div>
     </main>
 
-    <footer>
+    <footer id="footer">
       <div>
         <p>Made by Denis Imamovic</p>
       </div>

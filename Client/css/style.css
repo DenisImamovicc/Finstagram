@@ -46,23 +46,23 @@ nav {
     flex-direction: row;
     position: fixed;
     justify-content: space-around;
-    list-style: none;
     bottom: -1px;
     background-color: #3b3b3bd2;
     padding: 1rem;
 }
 
-li {
+button {
     color: #f6f370;
-
+    background-color: transparent;
+    border-color: transparent;
 }
 
-li:hover {
+button:hover {
     color: white;
     cursor: pointer;
 }
 
-li:active {
+button:active {
     color: white;
 }
 
