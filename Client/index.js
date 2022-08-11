@@ -20,8 +20,8 @@ const errorTemplate =function(){
     const errMessage="Server is not responding."+
                      "Reload the page or come back later.";
     const errHtmlTemplate =
-        `<div class="errorMessage">`+
-            `<h1 class="errorText">${errMessage}</h1>`+
+        `<div class="errorMessage" aria-label="Error message">`+
+            `<h1 class="errorText" tabindex="0">${errMessage}</h1>`+
         `</div>`;
     return renderTemplate(errHtmlTemplate);
 };
@@ -30,7 +30,7 @@ const errorTemplate =function(){
 const photosTemplate =function(photografies){
     photografies.forEach(function(photo){
         const photoHTMLTemplate =
-            `<article class="photo" aria-labelledby="main article">
+            `<article class="photo" aria-label="Photo of ${photo.title}">
                 <img src="${photo.url_m}" alt="${photo.title}" >
             </article>`;
         return renderTemplate(photoHTMLTemplate);
