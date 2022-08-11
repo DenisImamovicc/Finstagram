@@ -52,7 +52,7 @@ const updateLocalStorage = setTimeout(
 
 //fetch data and return localstorage data/new data or render err mssg.
 const fetchData = async function() {
-    const internalApi = "http://localhost:5000/PHOTOS";
+    const internalApi = "https://finstagram-api.herokuapp.com/PHOTOS";
     if (localStorage.getItem("storedData")) {
         updateLocalStorage;
         return pickWhatToRenderTemplate(JSON.parse(localStorage.getItem("storedData")));

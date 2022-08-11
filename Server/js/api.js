@@ -5,7 +5,7 @@ import cors from "cors";
 
 const allowedserver = "*";
 const api = express();
-const port = 5000;
+const port = process.env.PORT || 80;
 const flickrapi = `https://www.flickr.com/services/rest/` +
                   `?method=flickr.photos.search` +
                   `&api_key=${process.env.FLICKR_API_KEY}&text=Star+wars&extras=url_m` +
