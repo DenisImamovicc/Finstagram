@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node js/api.js"
+    "start": "nodemon js/api.js"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,12 @@
     "dotenv": "^16.0.1",
     "express": "^4.17.3",
     "fs": "0.0.1-security",
-    "node-fetch": "^3.2.3"
+    "http": "0.0.1-security",
+    "mime-types": "^2.1.35",
+    "node-fetch": "^3.2.3",
+    "path": "^0.12.7",
+    "serve-static": "^1.15.0",
+    "url": "^0.11.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
