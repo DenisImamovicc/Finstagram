@@ -8,6 +8,8 @@ cd Server
 npm install
 ```
 ## Activating Dev Api
+Note:Flickr api key is required for proper function and not supplied in this git hosted repository.
+
 Type in the terminal while in the Server directory...
 ```bash
 npm start
